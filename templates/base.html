@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafe & Wifi | {% block title %}{% endblock %}</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <!-- website favicon -->
+  <link rel="icon" href="{{url_for('static', filename='img/icon.ico')}}">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Jost&family=Kalam&family=Marcellus&display=swap" rel="stylesheet">
+
+  <!-- Icon Kit -->
+  <script src="https://kit.fontawesome.com/b1cb12db09.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
+</head>
+<!--../static/img/index-bg.jpg-->
+<body>
+  {% block front_bg %}
+  <div class="front" style="background-image: url('../static/img/index-bg.jpg')">
+  {% endblock %}
+  {% block front_layer %}
+  <div class="front-layer ">
+  {% endblock %}
+
+  {% block navbar %}
+    <nav class="navbar navbar-all navbar-expand-md ">
+        {% endblock %}
+      <div class="container">
+        <a class="navbar-brand brand-title" href="{{url_for('get_all_cafes')}}">Cafe & Wifi</a>
+        <button class="navbar-toggler jost-font" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          Menu <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNav">
+
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link jost-font" href="{{url_for('get_all_cafes')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link jost-font" href="{{url_for('about')}}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link jost-font" href="{{url_for('contact')}}">Contact</a>
+            </li>
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+      {% block intro %}{% endblock %}
+  </div>
+    </div>
+    {% block content %}{% endblock %}
+
+    <div class="end-image" style="background-image: url('../static/img/mid-bg.jpg')">
+  <div class="end">
+
+
+    <div class="social-symbols">
+      <a href="https://github.com/ajayKumarNadar"><i class="fa-brands fa-github"></i></a>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#"><i class="fa-solid fa-globe"></i></a>
+    </div>
+
+    <p class="copyright">© Copyright 2022 </p><p class="brand"> Cafe & Wifi</p>
+
+  </div>
+  </div>
+
+  </body>
+
+  </html>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block intro %}
+    <div class="intro">
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="index-empty">
+            
+          </div>
+          <p class="intro-msg kalam-font">Looking for a Work-friendly Cafe? We gotcha you.</p>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+  <div class="mid" style="background-image: url('../static/img/mid-bg.jpg')">
+
+
+    <div class="search">
+      <form id="search" method="POST">
+      <input class="input" type="text" name="text" placeholder="Your Location">
+      <button class="button" type="submit" name="submit" form="search" formaction="{{url_for('get_all_cafes')}}">Search</button>
+      </form>
+    </div>
+
+
+    <div class="all-cafe">
+
+    {% for cafe in all_cafes %}
+      <div class="cafe justify-content-center">
+        <a href="{{url_for('get_cafe', cafe_id=cafe.id)}}" class="cafe-anchor justify-content-center">
+          <div class="cafe-cafe row justify-content-center">
+
+            <img class="image col-sm-6" src="{{ cafe.img_url }}" alt="cafe-img">
+            <div class="info col-sm-6 text-center">
+
+              <h4 class="cafe-name mercellus-font">{{ cafe.name }}</h4>
+              <h5 class="cafe-location"><i class="fa-solid fa-location-dot"></i> {{ cafe.location }}</h5>
+              <div class="cafe-symbols">
+
+              {% if cafe.has_wifi %}
+                <span class="material-symbols-rounded on">
+                  wifi
+                </span>
+              {% else %}
+                <span class="material-symbols-rounded off">
+                  wifi_off
+                </span>
+              {% endif %}
+
+
+              {% if cafe.has_sockets %}
+              <span class="material-symbols-rounded on">
+                power
+              </span>
+            {% else %}
+              <span class="material-symbols-rounded off">
+                power_off
+              </span>
+            {% endif %}
+
+              </div>
+
+            </div>
+
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

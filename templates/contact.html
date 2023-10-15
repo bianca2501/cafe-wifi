@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block intro %}
+    <div class="intro">
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+        </div>
+        <div class="col-12 col-md-6">
+          <form action="{{ url_for('contact') }}" method="post">
+            <p class="intro-msg kalam-font">{{ msg }}</p>
+            <input class="contact-email jost-font" type="email" name="email" placeholder="Your Email" required>
+            <textarea class="contact-message jost-font" name="message" rows="8" cols="50" placeholder="Your Message" required></textarea>
+            <br><button class="btn  btn-outline-light" type="submit" name="submit">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}{{ cafe.name }}{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-cafe navbar-expand-md ">
+  {% endblock %}
+
+{% block front_bg %}
+ <div class="front" style="background-image: url('{{ cafe.img_url }}')">
+{% endblock %}
+
+{% block front_layer %}
+<div class="front-layer front-layer-cafe">
+{% endblock %}
+
+{% block intro %}
+      <div class="intro">
+
+      <div class="row cafe-content">
+        <div class="col-12 col-md-6 cafe-cc">
+          <img class="cafe-pic" src="{{ cafe.img_url }}" alt="cafe-img">
+        </div>
+        <div class="col-12 col-md-6 cafe-cc">
+            <p class="intro-msg kalam-font">{{ cafe.name }}</p>
+            <div class="row jost-font">
+
+
+            <div class="col-md-6 col-12 cafe-features">
+              <ul>
+              {% if cafe.has_wifi %}
+                  <li class="green">Has Wifi</li>
+              {% else %}
+                  <li class="red">Don't have Wifi</li>
+              {% endif %}
+
+              {% if cafe.has_sockets %}
+                  <li class="green">Has Power Sockets</li>
+              {% else %}
+                  <li class="red">Don't have Power Sockets</li>
+              {% endif %}
+
+              {% if cafe.has_toilet %}
+                  <li class="green">Has Toilets</li>
+              {% else %}
+                  <li class="red">Don't have Toilets</li>
+              {% endif %}
+
+              {% if cafe.has_sockets %}
+                  <li class="green">Can take Calls</li>
+              {% else %}
+                  <li class="red">Can't take Calls</li>
+              {% endif %}
+
+            </ul>
+            </div>
+
+            <div class="col-md-6 col-12">
+              <table>
+                <tr>
+                  <td class="right-align">Seats</td>
+                  <td class="left-align"> : {{ cafe.seats }}</td>
+                </tr>
+                <tr>
+                  <td class="right-align">Coffee Price</td>
+                  <td class="left-align"> : {{ cafe.coffee_price }}</td>
+                </tr>
+                <tr>
+                  <td class="right-align">Location : </td>
+                  <td class="left-align"> <a style="color:cyan; text-shadow: 1px 1px black;" href="{{ cafe.map_url }}">{{ cafe.location }}</a></td>
+                </tr>
+              </table>
+
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
